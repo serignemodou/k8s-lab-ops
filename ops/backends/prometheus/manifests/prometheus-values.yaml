@@ -1,0 +1,38 @@
+prometheus:
+  prometheusSpec:
+    enableRemoteWriteReceiver: true
+
+
+grafana:
+  enabled: true
+  adminPassword: admin
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      labelValue: "1"
+      # Allow discovery in all namespaces for dashboards
+      searchNamespace: ALL
+
+      ## Annotations for Grafana dashboard configmaps
+      ##
+      annotations: {}
+      multicluster:
+        global:
+          enabled: false
+        etcd:
+          enabled: false
+      provider:
+        allowUiUpdates: false
+    datasources:
+      enabled: true
+      defaultDatasourceEnabled: true
+      isDefaultDatasource: true
+      uid: prometheus
+
+  additionalDataSources:
+  - name: loki
+    access: proxy
+    type: loki
+    url: http://loki.loki-system.svc.cluster.local:3100
+

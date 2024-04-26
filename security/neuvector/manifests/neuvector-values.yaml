@@ -1,0 +1,21 @@
+controller:
+  enabled: true
+  replicas: 3
+
+enforcer:
+  enabled: true
+
+manager:
+  enabled: true
+
+cve:
+  adapter:
+    enabled: false
+  updater:
+    enabled: true
+  scanner:
+    enabled: true
+
+containerd:
+  enabled: true
+  path: /var/run/containerd/containerd.sock
