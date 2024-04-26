@@ -1,5 +1,5 @@
 # LAB 3
-## k8s-lab-ops
+## k8s-lab-ops-secu
 ### OPS
 ##### Description
 La partie OPS nous permet de surveiller et de superviser nos applications avec les données de télémétriques: Metrics, Logs, et Trace
